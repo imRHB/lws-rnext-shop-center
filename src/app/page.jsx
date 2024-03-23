@@ -1,9 +1,17 @@
-export default function Home() {
+import React from "react";
+
+import Header from "@/components/Header";
+import ProductList from "@/components/product/ProductList";
+import Subscription from "@/components/Subscription";
+
+export default function HomePage() {
     return (
-        <main>
-            <h1 className="p-8 text-5xl font-extrabold text-center text-violet-400">
-                Shop Center
-            </h1>
-        </main>
+        <React.Fragment>
+            <Header />
+            <main>
+                <ProductList />
+                <Subscription />
+            </main>
+        </React.Fragment>
     );
 }
