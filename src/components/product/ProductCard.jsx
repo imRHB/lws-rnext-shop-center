@@ -37,11 +37,15 @@ export default function ProductCard({ product }) {
                     </Link>
                 </span>
             </h2>
-            <p className="text-[#919090] text-sm truncate">{description}</p>
+            <p className="text-[#919090] text-sm">{description}</p>
 
             <p className="mt-4 text-sm text-rose-600">
-                <span className="text-[#919090] line-through">${price}</span> $
-                {getDiscountedPrice(price, discountPercentage)}
+                <span className="text-[#919090] line-through mr-2">
+                    ${price}
+                </span>{" "}
+                <span className="font-bold">
+                    ${getDiscountedPrice(price, discountPercentage)}
+                </span>
             </p>
         </div>
     );

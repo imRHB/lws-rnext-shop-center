@@ -27,7 +27,7 @@ export default function ProductDescription({ details }) {
 
             <div>
                 <p className="my-3">
-                    <span className="line-through text-rose-600 opacity-60">
+                    <span className="mr-2 line-through text-rose-600 opacity-60">
                         ${price}
                     </span>
                     <span className="text-2xl font-bold">
