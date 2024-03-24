@@ -12,29 +12,39 @@ export default function ProductDetailsPage({ params }) {
         discountPercentage,
         thumbnail,
         images,
-    } = product;
+    } = product || {};
+
+    let content = null;
+
+    if (!product) {
+        content = <div>Product not found</div>;
+    }
+
+    if (product) {
+        content = (
+            <div className="flex flex-col items-center justify-between w-11/12 gap-12 mx-auto lg:w-8/12 max-w-7xl lg:flex-row">
+                <ProductImageViewer
+                    title={title}
+                    thumbnail={thumbnail}
+                    images={images}
+                />
+
+                <ProductDescription
+                    details={{
+                        title,
+                        description,
+                        category,
+                        price,
+                        discountPercentage,
+                    }}
+                />
+            </div>
+        );
+    }
 
     return (
-        <main class="h-screen">
-            <section class="bg-[#fafaf2] h-full py-20">
-                <div class="w-11/12 lg:w-8/12 max-w-7xl mx-auto flex flex-col gap-12 lg:flex-row items-center justify-between">
-                    <ProductImageViewer
-                        title={title}
-                        thumbnail={thumbnail}
-                        images={images}
-                    />
-
-                    <ProductDescription
-                        details={{
-                            title,
-                            description,
-                            category,
-                            price,
-                            discountPercentage,
-                        }}
-                    />
-                </div>
-            </section>
+        <main className="h-screen">
+            <section className="bg-[#fafaf2] h-full py-20">{content}</section>
         </main>
     );
 }

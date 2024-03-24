@@ -26,7 +26,10 @@ export default function ProductCard({ product }) {
                     {title}
                 </Link>
                 <span className="text-[#919090] ml-2">
-                    <Link href={`/products`} className="capitalize">
+                    <Link
+                        href={`/category/${category.toLowerCase()}`}
+                        className="capitalize"
+                    >
                         ({category})
                     </Link>
                 </span>
