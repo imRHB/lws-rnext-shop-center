@@ -2,7 +2,21 @@ import React from "react";
 
 import Message from "@/components/Message";
 import ProductCard from "@/components/product/ProductCard";
-import { getCategoryList, getProductByCategoryName } from "@/lib";
+import {
+    capitalizeFirstLetter,
+    getCategoryList,
+    getProductByCategoryName,
+} from "@/lib";
+
+export async function generateMetadata({ params }) {
+    return {
+        title: `Shop Center | Category - ${capitalizeFirstLetter(
+            params.categoryName
+        )}`,
+        description:
+            "A Shop for Reactive Accelerator Batch, brought in by LWS!",
+    };
+}
 
 export default function CategoryWiseProductPage({ params }) {
     const productList = getProductByCategoryName(params.categoryName);

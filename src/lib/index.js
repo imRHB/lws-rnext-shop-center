@@ -26,3 +26,7 @@ export function getCategoryList() {
 export function getDiscountedPrice(originalPrice, percentage) {
     return (originalPrice - (originalPrice * percentage) / 100).toFixed(2);
 }
+
+export function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}

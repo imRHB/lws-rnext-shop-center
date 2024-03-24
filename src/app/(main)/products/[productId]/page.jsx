@@ -1,6 +1,17 @@
+import Message from "@/components/Message";
 import ProductDescription from "@/components/product/ProductDescription";
 import ProductImageViewer from "@/components/product/ProductImageViewer";
 import { getProductById } from "@/lib";
+
+export async function generateMetadata({ params }) {
+    const product = getProductById(params.productId);
+
+    return {
+        title: `Shop Center | ${product ? product.title : "Not found"}`,
+        description:
+            "A Shop for Reactive Accelerator Batch, brought in by LWS!",
+    };
+}
 
 export default function ProductDetailsPage({ params }) {
     const product = getProductById(params.productId);
@@ -17,7 +28,14 @@ export default function ProductDetailsPage({ params }) {
     let content = null;
 
     if (!product) {
-        content = <div>Product not found</div>;
+        content = (
+            <div className="flex flex-col items-center justify-between w-11/12 gap-12 mx-auto lg:w-8/12 max-w-7xl">
+                <Message
+                    title="Not Found!"
+                    description="We didn't find the product that you're looking for!"
+                />
+            </div>
+        );
     }
 
     if (product) {
