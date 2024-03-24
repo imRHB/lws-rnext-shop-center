@@ -10,8 +10,8 @@ export default function ProductImageViewer({ title, thumbnail, images }) {
         <div className="w-full p-4 border rounded-lg lg:w-7/12 border-slate-500/20">
             <Image
                 src={previewImage}
-                height={100}
-                width={100}
+                height={500}
+                width={500}
                 className="w-[400px] h-[500px] mx-auto object-cover rounded-md"
                 alt={title}
             />
@@ -21,8 +21,8 @@ export default function ProductImageViewer({ title, thumbnail, images }) {
                     <Image
                         key={imgSrc}
                         src={imgSrc}
-                        height={100}
-                        width={100}
+                        height={500}
+                        width={500}
                         className="w-[100px] h-[100px] mx-auto border object-cover rounded-md cursor-pointer"
                         alt={title}
                         onClick={() => setPreviewImage(imgSrc)}

@@ -1,12 +1,14 @@
 "use client";
 
+import { getCategoryList } from "@/lib";
 import { usePathname, useRouter } from "next/navigation";
 
-export default function CategoryList({ categoryList }) {
+export default function CategoryList() {
     const router = useRouter();
     const pathname = usePathname();
+
+    const categoryList = getCategoryList();
     const activePath = pathname.split("/")[2];
-    console.log(activePath);
 
     const onAction = (categoryName) => {
         router.push(`/category/${categoryName.toLowerCase()}`);
@@ -14,11 +16,6 @@ export default function CategoryList({ categoryList }) {
 
     return (
         <div className="sticky flex items-center justify-between w-full my-10 top-20 lg:block lg:w-2/12 lg:my-0 lg:mt-4">
-            <CategoryItem
-                categoryName={"all"}
-                activePath={activePath}
-                onAction={onAction}
-            />
             {categoryList.map((category) => (
                 <CategoryItem
                     key={category}
@@ -39,7 +36,7 @@ function CategoryItem({ categoryName, activePath, onAction }) {
                     ? "font-bold text-violet-400"
                     : ""
             }`}
-            onClick={() => onAction(categoryName.toLowerCase())}
+            onClick={() => onAction(categoryName)}
         >
             {categoryName}
         </button>

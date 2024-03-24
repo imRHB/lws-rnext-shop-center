@@ -22,7 +22,10 @@ export default function ProductCard({ product }) {
             />
 
             <h2 className="mt-2 text-sm lg:text-base">
-                <Link href={`/products/${id}`} className="text-base font-bold">
+                <Link
+                    href={`/products/${id}`}
+                    className="text-base font-bold capitalize"
+                >
                     {title}
                 </Link>
                 <span className="text-[#919090] ml-2">

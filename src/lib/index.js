@@ -10,6 +10,7 @@ export function getProductById(productId) {
 
 export function getProductByCategoryName(categoryName) {
     if (categoryName.toLowerCase() === "all") return PRODUCT_LIST;
+
     return PRODUCT_LIST.filter(
         (product) =>
             product.category.toLowerCase() === categoryName.toLowerCase()
@@ -17,7 +18,8 @@ export function getProductByCategoryName(categoryName) {
 }
 
 export function getCategoryList() {
-    const categoryList = PRODUCT_LIST.map((product) => product.category);
+    let categoryList = PRODUCT_LIST.map((product) => product.category);
+    categoryList = ["all", ...categoryList];
     return [...new Set(categoryList)];
 }
 

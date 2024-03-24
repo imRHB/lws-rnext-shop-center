@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { getDiscountedPrice } from "@/lib";
 import Star from "../Star";
 
@@ -9,7 +11,11 @@ export default function ProductDescription({ details }) {
             <h1 className="font-serif text-xl italic font-semibold lg:text-3xl">
                 {title}
             </h1>
-            <span className="text-[#919090] my-3 capitalize">{category}</span>
+            <Link href={`/category/${category.toLowerCase()}`}>
+                <span className="text-[#919090] my-3 capitalize">
+                    {category}
+                </span>
+            </Link>
             <div className="flex items-center justify-start gap-1 mt-3">
                 <Star />
                 <Star />
