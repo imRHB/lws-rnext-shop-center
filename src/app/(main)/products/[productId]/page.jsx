@@ -29,10 +29,11 @@ export default function ProductDetailsPage({ params }) {
 
     if (!product) {
         content = (
-            <div className="flex flex-col items-center justify-between w-11/12 gap-12 mx-auto lg:w-8/12 max-w-7xl">
+            <div className="flex flex-col items-center justify-between w-11/12 gap-12 mx-auto lg:w-8/12 max-w-7xl min-h-[40vh]">
                 <Message
                     title="Not Found!"
                     description="We didn't find the product that you're looking for!"
+                    imgSrc={"/assets/no-results.png"}
                 />
             </div>
         );
@@ -61,7 +62,7 @@ export default function ProductDetailsPage({ params }) {
     }
 
     return (
-        <main className="h-screen">
+        <main className="">
             <section className="bg-[#fafaf2] h-full py-20">{content}</section>
         </main>
     );

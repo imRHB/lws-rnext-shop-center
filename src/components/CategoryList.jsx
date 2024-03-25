@@ -15,7 +15,7 @@ export default function CategoryList() {
     };
 
     return (
-        <div className="sticky flex flex-wrap items-center justify-center w-full gap-4 my-10 top-24 lg:block lg:w-2/12 lg:my-0 lg:mt-4">
+        <div className="sticky flex flex-wrap items-center justify-center w-full gap-4 my-10 lg:block lg:w-2/12 lg:my-0 lg:mt-4 top-24">
             {categoryList.map((category) => (
                 <CategoryItem
                     key={category}

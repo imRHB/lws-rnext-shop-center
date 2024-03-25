@@ -1,5 +1,6 @@
 import React from "react";
 
+import Divider from "@/components/Divider";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
@@ -15,6 +16,7 @@ export default function MainLayout({ children }) {
                 <Navbar />
             </div>
             {children}
+            <Divider />
             <Footer />
         </React.Fragment>
     );

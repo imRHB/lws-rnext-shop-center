@@ -1,5 +1,3 @@
-import React from "react";
-
 import Message from "@/components/Message";
 import ProductCard from "@/components/product/ProductCard";
 import {
@@ -7,6 +5,7 @@ import {
     getCategoryList,
     getProductByCategoryName,
 } from "@/lib";
+import React from "react";
 
 export async function generateMetadata({ params }) {
     return {
@@ -22,27 +21,41 @@ export default function CategoryWiseProductPage({ params }) {
     const productList = getProductByCategoryName(params.categoryName);
     const categoryList = getCategoryList();
 
-    return (
-        <div className="sticky top-0 right-0 grid w-full grid-cols-2 gap-4 my-4 lg:w-10/12 lg:grid-cols-3 lg:my-10">
-            {categoryList.includes(params.categoryName) ? (
-                productList.length <= 0 ? (
-                    <Message
-                        title="Not found!"
-                        description="We didn't find any products for this category."
-                    />
-                ) : (
-                    <React.Fragment>
-                        {productList.map((product) => (
-                            <ProductCard key={product.id} product={product} />
-                        ))}
-                    </React.Fragment>
-                )
-            ) : (
+    let content = null;
+
+    if (!categoryList.includes(params.categoryName)) {
+        content = (
+            <div className="min-h-[40vh] grid place-items-center sticky top-0 right-0 w-full my-4 lg:w-10/12 lg:my-10">
                 <Message
                     title="Not found!"
                     description="We didn't find the category that you're searching for."
+                    imgSrc={"/assets/no-search.png"}
                 />
-            )}
-        </div>
-    );
+            </div>
+        );
+    }
+
+    if (categoryList.includes(params.categoryName) && productList.length <= 0) {
+        content = (
+            <div className="min-h-[40vh] grid place-items-center sticky top-0 right-0 w-full my-4 lg:w-10/12 lg:my-10">
+                <Message
+                    title="Not Found!"
+                    description="We didn't find any products for this category."
+                    imgSrc={"/assets/no-results.png"}
+                />
+            </div>
+        );
+    }
+
+    if (categoryList.includes(params.categoryName) && productList.length > 0) {
+        content = (
+            <div className="sticky top-0 right-0 grid w-full grid-cols-2 gap-4 my-4 lg:w-10/12 lg:grid-cols-3 lg:my-10">
+                {productList.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                ))}
+            </div>
+        );
+    }
+
+    return <React.Fragment>{content}</React.Fragment>;
 }
