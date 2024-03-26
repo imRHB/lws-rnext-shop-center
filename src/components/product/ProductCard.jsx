@@ -14,11 +14,10 @@ export default function ProductCard({ product }) {
     } = product;
 
     return (
-        <div className="px-4">
+        <div>
             <div
-                className="relative delay-150 w-180px lg:w-[270px] h-[205px] lg:h-[310px] bg-[#f8f8f8] bg-cover bg-center transition-all duration-3000 ease-in-out transform rounded-md mx-auto"
+                className="relative delay-150 w-full h-[205px] lg:h-[310px] bg-cover bg-center transition-all rounded-lg duration-3000 ease-in-out transform"
                 style={{ backgroundImage: `url(${thumbnail})` }}
-                // need to fix the tailwind arbitrary class for bg-[url('')]
             />
 
             <h2 className="mt-2 text-sm lg:text-base">

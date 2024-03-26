@@ -31,7 +31,7 @@ export default function ProductDetailsPage({ params }) {
         content = (
             <div className="flex flex-col items-center justify-between w-11/12 gap-12 mx-auto lg:w-8/12 max-w-7xl min-h-[40vh]">
                 <Message
-                    title="Not Found!"
+                    title="Not found!"
                     description="We didn't find the product that you're looking for!"
                     imgSrc={"/assets/no-results.png"}
                 />

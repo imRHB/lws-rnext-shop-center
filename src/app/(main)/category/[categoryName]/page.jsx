@@ -25,7 +25,7 @@ export default function CategoryWiseProductPage({ params }) {
 
     if (!categoryList.includes(params.categoryName)) {
         content = (
-            <div className="min-h-[40vh] grid place-items-center sticky top-0 right-0 w-full my-4 lg:w-10/12 lg:my-10">
+            <div className="min-h-[40vh] grid place-items-center w-full my-4 lg:w-10/12 lg:my-10">
                 <Message
                     title="Not found!"
                     description="We didn't find the category that you're searching for."
@@ -37,9 +37,9 @@ export default function CategoryWiseProductPage({ params }) {
 
     if (categoryList.includes(params.categoryName) && productList.length <= 0) {
         content = (
-            <div className="min-h-[40vh] grid place-items-center sticky top-0 right-0 w-full my-4 lg:w-10/12 lg:my-10">
+            <div className="min-h-[40vh] grid place-items-center w-full my-4 lg:w-10/12 lg:my-10">
                 <Message
-                    title="Not Found!"
+                    title="Not found!"
                     description="We didn't find any products for this category."
                     imgSrc={"/assets/no-results.png"}
                 />
@@ -49,7 +49,7 @@ export default function CategoryWiseProductPage({ params }) {
 
     if (categoryList.includes(params.categoryName) && productList.length > 0) {
         content = (
-            <div className="sticky top-0 right-0 grid w-full grid-cols-2 gap-4 my-4 lg:w-10/12 lg:grid-cols-3 lg:my-10">
+            <div className="grid w-full grid-cols-2 gap-4 my-4 lg:w-10/12 lg:grid-cols-3 lg:my-10 lg:gap-6 xl:gap-8">
                 {productList.map((product) => (
                     <ProductCard key={product.id} product={product} />
                 ))}

@@ -9,14 +9,14 @@ export default function Subscription() {
                     Sign up for new product drops, behind-the-scenes content,
                     and monthly &quot;5 Things I&apos;m Digging&quot; emails
                 </p>
-                <form action="#" className="mb-5">
+                <form className="mb-5">
                     <input
                         type="text"
-                        className="w-full p-3 mt-10 border border-black focus:outline-none"
+                        className="w-full p-3 mt-10 border border-black rounded focus:outline-none"
                         placeholder="Enter your email"
                     />
-                    <button className="w-full bg-[#1a1a1a] hover:bg-[#3a3a3a] text-center py-2 mt-2 text-white">
-                        See what we&quot;re doing
+                    <button className="w-full bg-[#1a1a1a] hover:bg-[#3a3a3a] text-center py-2 mt-2 text-white rounded">
+                        See what we&apos;re doing
                     </button>
                 </form>
             </div>
