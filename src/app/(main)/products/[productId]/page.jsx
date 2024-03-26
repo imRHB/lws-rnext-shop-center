@@ -1,13 +1,15 @@
 import Message from "@/components/Message";
 import ProductDescription from "@/components/product/ProductDescription";
 import ProductImageViewer from "@/components/product/ProductImageViewer";
-import { getProductById } from "@/lib";
+import { capitalizeFirstLetter, getProductById } from "@/lib";
 
 export async function generateMetadata({ params }) {
     const product = getProductById(params.productId);
 
     return {
-        title: `Shop Center | ${product ? product.title : "Not found"}`,
+        title: `Shop Center | ${
+            product ? capitalizeFirstLetter(product.title) : "Not found"
+        }`,
         description:
             "A Shop for Reactive Accelerator Batch, brought in by LWS!",
     };

@@ -8,7 +8,7 @@ export default function ProductDescription({ details }) {
 
     return (
         <div className="w-full lg:w-5/12">
-            <h1 className="font-serif text-xl italic font-semibold lg:text-3xl">
+            <h1 className="font-serif text-xl italic font-semibold capitalize lg:text-3xl">
                 {title}
             </h1>
             <Link href={`/category/${category.toLowerCase()}`}>
